@@ -23,7 +23,7 @@ public class contrat {
     @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal montantTotal;
     @Column(nullable = false)
-    private boolean valide;
+    private Boolean valide;
 
     // OneToOne : proprietaire de l'association (FK idReservation unique)
     @OneToOne

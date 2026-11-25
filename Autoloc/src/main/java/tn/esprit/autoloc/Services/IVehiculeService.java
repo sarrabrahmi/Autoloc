@@ -10,4 +10,8 @@ public interface IVehiculeService {
     List<vehicule> recupererVehicules();
     Set<vehicule> findVehicules();
     vehicule recupererVehiculeByid(long idVehicule);
+
+    vehicule affecterVehicule(Long idVehicule, Long idAgence);
+    vehicule affecterEquipement(Long idVehicule, Long idEquipement);
+    vehicule desaffecterEquipement(Long idVehicule, Long idEquipement);
 }

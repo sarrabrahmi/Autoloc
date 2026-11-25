@@ -10,4 +10,7 @@ public interface IEmployeService {
     List<employe> recupererEmployes();
     Set<employe> findEmployes();
     employe recupererEmployeByid(long idEmploye);
+
+    employe desaffecterEmploye(Long idEmploye);
+    employe affecterEmploye(Long idEmploye, Long idAgence);
 }

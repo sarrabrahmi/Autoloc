@@ -1,8 +1,9 @@
 package tn.esprit.autoloc.Entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,7 +20,9 @@ public class equipement {
     @Column(nullable = false, length = 50)
     private String libelle;
 
+    // ManyToMany : cote inverse (proprietaire = vehicule)
     @ManyToMany(mappedBy = "equipements")
+    @JsonIgnore
     @ToString.Exclude
     private Set<vehicule> vehicules = new HashSet<>();
 }

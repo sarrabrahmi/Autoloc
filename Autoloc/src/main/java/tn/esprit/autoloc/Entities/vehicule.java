@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -34,17 +35,19 @@ public class vehicule {
 
     // ManyToOne : plusieurs vehicules appartiennent a une agence
     @ManyToOne
-    @JoinColumn(name = "idAgence", nullable = false)
+    @JoinColumn(name = "idAgence")
     @ToString.Exclude
     private agence agence;
 
     // OneToMany : un vehicule a plusieurs reservations
-    @OneToMany(mappedBy = "vehicule", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicule")
+    @JsonIgnore
     @ToString.Exclude
     private Set<reservation> reservations = new HashSet<>();
 
     // OneToMany : un vehicule a plusieurs maintenances
-    @OneToMany(mappedBy = "vehicule", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicule")
+    @JsonIgnore
     @ToString.Exclude
     private Set<maintenance> maintenances = new HashSet<>();
 

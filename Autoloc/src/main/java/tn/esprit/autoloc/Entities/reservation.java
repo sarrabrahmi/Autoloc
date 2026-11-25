@@ -1,4 +1,6 @@
 package tn.esprit.autoloc.Entities;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,7 +35,8 @@ public class reservation {
     private client client;
 
     // OneToOne : cote inverse (la cle etrangere est dans contrat)
-    @OneToOne(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "reservation")
+    @JsonIgnore
     @ToString.Exclude
     private contrat contrat;
 }

@@ -6,4 +6,5 @@ import tn.esprit.autoloc.Entities.client;
 
 @Repository
 public interface clientRepo extends JpaRepository<client, Long> {
+    boolean existsByEmail(String email);
 }

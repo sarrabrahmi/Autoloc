@@ -1,5 +1,6 @@
 package tn.esprit.autoloc.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class paiement {
     // ManyToOne : plusieurs paiements pour un contrat
     @ManyToOne
     @JoinColumn(name = "idContrat", nullable = false)
+    @JsonIgnoreProperties("paiements")
     @ToString.Exclude
     private contrat contrat;
 }

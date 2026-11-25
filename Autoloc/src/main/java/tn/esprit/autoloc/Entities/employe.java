@@ -2,6 +2,8 @@ package tn.esprit.autoloc.Entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Getter
 @Setter
@@ -24,8 +26,7 @@ public class employe {
 
     // ManyToOne : plusieurs employes travaillent dans une agence
     @ManyToOne
-    @JoinColumn(name = "idAgence", nullable = false)
-    @ToString.Exclude
+    @JoinColumn(name = "id_agence")
     private agence agence;
 
 }
